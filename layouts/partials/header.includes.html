@@ -16,16 +16,16 @@
 {{- $htoptions := (dict "targetPath" "/css/hugo-tufte.min.css" "outputStyle" "compressed" "enableSourceMap" true) -}}
 {{- with resources.Get "scss/hugo-tufte.scss" -}}
   {{- with . | resources.ExecuteAsTemplate "main.scss" $  | css.Sass $htoptions -}}
-    <link rel="stylesheet" href="{{ .Permalink | absURL }}">
+    <link rel="stylesheet" href="{{ .RelPermalink }}">
   {{- end -}}
 {{- end -}}
 
 {{- $ht_o_options := (dict "targetPath" "/css/hugo-tufte-options.min.css" "outputStyle" "compressed" "enableSourceMap" true) -}}
 {{- with resources.Get "scss/hugo-tufte-options.scss" -}}
   {{- with . | resources.ExecuteAsTemplate "main.scss" $  | css.Sass $ht_o_options -}}
-    <link rel="stylesheet" href="{{ .Permalink | absURL }}">
+    <link rel="stylesheet" href="{{ .RelPermalink }}">
   {{- end -}}
 {{- end -}}
 
-<link rel="stylesheet" href="{{ "/css/hugo-tufte-override.css" | absURL }}">
+<link rel="stylesheet" href="{{ "/css/hugo-tufte-override.css" | relURL }}">
 
