@@ -1,4 +1,8 @@
-baseURL: "http://localhost:1313/"
+# Using relative URLs - works both locally and on GitHub Pages
+baseURL: "/"
+relativeURLs: true
+canonifyURLs: false
+
 languageCode: "en-US"
 title: "Tom Griffin"
 theme: hugo-tufte
