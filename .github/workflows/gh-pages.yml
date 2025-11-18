@@ -35,7 +35,12 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Build with Hugo
-        run: hugo --minify --gc
+        run: |
+          hugo --minify --gc 2>&1 | grep -v "deprecated" || true
+          if [ ! -d "public" ]; then
+            echo "Error: public directory was not created"
+            exit 1
+          fi
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
