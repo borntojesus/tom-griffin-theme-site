@@ -1,0 +1,49 @@
+baseURL: "http://localhost:1313/"
+languageCode: "en-US"
+title: "Tom Griffin"
+theme: hugo-tufte
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
+    guessSyntax: true
+
+params:
+  subtitle: ""
+  codeblocksdark: false
+  marginNoteInd: "⊕"
+  showPoweredBy: true
+  hidedate: false
+  showSummary: true
+  math: true
+  KaTeXVersion: 0.16.4
+  KaTeXCDN: "//cdn.jsdelivr.net/npm"
+  sansSubtitle: false
+  centerArticle: false
+
+taxonomies:
+  category: categories
+  series: series
+  tag: tags
+
+menu:
+  nav:
+    - name: Home
+      weight: -110
+      identifier: home
+      url: /
+    - name: Posts
+      weight: -100
+      identifier: posts
+      url: /posts/
+    - name: About
+      weight: -80
+      identifier: about
+      url: /about/
+
+pagination:
+  pagerSize: 5
+
