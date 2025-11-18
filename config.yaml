@@ -19,6 +19,7 @@ markup:
 
 params:
   subtitle: ""
+  favicon: "/favicon.ico"
   codeblocksdark: false
   marginNoteInd: "⊕"
   showPoweredBy: true
