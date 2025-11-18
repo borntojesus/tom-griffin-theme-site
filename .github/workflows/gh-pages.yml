@@ -36,13 +36,17 @@ jobs:
 
       - name: Build with Hugo
         run: |
-          set +e
-          hugo --minify --gc --config config.yaml,config.github-pages.yaml 2>&1 | grep -v "deprecated" || true
-          set -e
+          # Build Hugo - ignore deprecated warnings and exit code (like Netlify does)
+          # Hugo may return exit code 1 due to deprecated warnings, but files are still generated
+          (hugo --minify --gc --config config.yaml,config.github-pages.yaml 2>&1 | grep -v "deprecated") || true
+          
+          # Check if build was successful (files were generated)
+          # This is what matters - not the exit code, but whether files exist
           if [ ! -d "public" ] || [ ! -f "public/index.html" ]; then
             echo "Error: public directory or index.html was not created"
             exit 1
           fi
+          
           echo "Build successful - found $(find public -type f | wc -l) files"
 
       - name: Upload artifact
